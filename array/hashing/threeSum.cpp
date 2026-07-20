@@ -33,6 +33,7 @@ vector<vector<int>> bruteForceMethod(vector<int>& num) {
 
 vector<vector<int>> hashing(vector<int>& num) {
     // logic: a + b + c = 0 => a + b = -c = target
+    // O(n^2)
 
     set<vector<int>> uniqueSet;
     int n = num.size();
@@ -41,8 +42,8 @@ vector<vector<int>> hashing(vector<int>& num) {
         set<int> s;
         int target = -num[i];
         for(int j = i+1; j<n; j++) {
-            int toFind = target - num[j];
-            if(s.find(toFind) != s.end()) {
+            int toFind = target - num[j];  
+            if(s.find(toFind) != s.end()) {  
                 vector<int> triplet = {num[i], num[j], toFind};
                 sort(triplet.begin(), triplet.end());
                 uniqueSet.insert(triplet);

@@ -31,10 +31,10 @@ public:
     {
         if (head == NULL)
             return NULL;
-        unordered_map<Node *, Node *> m;
+        unordered_map<Node *, Node *> m; // 1st->oldNode, 2nd->newNode
 
-        Node *newHead = new Node(head->data);
-        Node *oldTemp = head->next;
+        Node *newHead = new Node(head->data); // Create the head of the new list
+        Node *oldTemp = head->next;           // Start from the second node of the old list
         Node *newTemp = newHead;
 
         m[head] = newHead;
@@ -53,7 +53,7 @@ public:
         newTemp = newHead;
         while (oldTemp != NULL)
         {
-            newTemp->random = m[oldTemp->random];
+            newTemp->random = m[oldTemp->random]; // random will be existing in the map as we created it while copying
 
             oldTemp = oldTemp->next;
             newTemp = newTemp->next;
